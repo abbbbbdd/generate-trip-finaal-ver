@@ -56,7 +56,7 @@ def generate_trip(data: dict):
         return time_str
 
     clock = [1.5, 1, 2]
-    df = pd.read_excel('final413.xlsx', index_col=0)
+    df = pd.read_excel('finalversionof_data.xlsx', index_col=0)
     prefered = get_preferred_categories(data.get('prefered'))
     source = (data.get('latitude'), data.get('longitude'))
     objects_of_objects = {}
@@ -112,7 +112,7 @@ def generate_trip(data: dict):
                     list_of_objects.append(x1)
                     time1 = time2 + 0.5
                 list_of_objects.append(adding_fun(time1, governorate))
-                objects_of_objects[f"Day{counter}> {governorate}"] = list_of_objects
+                objects_of_objects[f"Day{counter}"]={"governorate":governorate,"places":list_of_objects}
                 counter += 1
 
             elif len(govern_dict) < data.get('no_of_places') and len(govern_dict) != 0:
@@ -134,7 +134,7 @@ def generate_trip(data: dict):
                     list_of_objects.append(x1)
                     time1 = time2 + 0.5
                 list_of_objects.append(adding_fun(time1, governorate))
-                objects_of_objects[f"Day{counter}> {governorate}"] = list_of_objects
+                objects_of_objects[f"Day{counter}"]={"governorate":governorate,"places":list_of_objects}
                 counter += 1
             else:
                 break
