@@ -3,3 +3,4 @@ uvicorn
 pandas
 geopy
 numpy
+openpyxl
